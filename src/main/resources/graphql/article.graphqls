@@ -1,0 +1,17 @@
+type Article {
+    id: ID!
+    title: String!
+    text: String!
+    author: Author!
+}
+
+extend type Query {
+    article(id: ID!): Article
+    findAllArticles: [Article]!
+}
+
+extend type Mutation {
+    newArticle(title: String!, text: String!, authorId: ID!): Article!
+    updateArticle(id: ID!, title: String!, text: String!, authorId: ID!): Article
+    deleteArticle(id: ID): Boolean!
+}
